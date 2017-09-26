@@ -1,4 +1,4 @@
-function patterns = GenerateData(nbrOfPatters)
+function patterns = GeneratePatterns(nbrOfPatters)
 %GenerateData Generated datapoints (patterns) uniformily distributed on the
 %shape in Example Sheet 2
 
