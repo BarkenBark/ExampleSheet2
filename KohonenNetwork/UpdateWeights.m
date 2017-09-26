@@ -1,7 +1,7 @@
-function [ output_args ] = UpdateWeights( input_args )
-%UNTITLED6 Summary of this function goes here
-%   Detailed explanation goes here
+function newWeights = UpdateWeights(weights, winningNeuron, pattern, learningRate, sigma)
+%UpdateWeights Update weights according to the Kohenen rule
 
+  
 
 end
 
