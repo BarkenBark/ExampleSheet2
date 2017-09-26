@@ -10,6 +10,7 @@ inputDimension = size(patterns, 1); %N
 weights = GenerateWeights(inputDimension, outputDimension); %Return outputDimensionxinputDimension matrix
 
 for iteration = 1:NUMBER_OF_ITERATIONS
+  
   if iteration < T_order
     learningRate = initialLearningRate*exp(-iteration/tau);
   else
@@ -19,7 +20,6 @@ for iteration = 1:NUMBER_OF_ITERATIONS
   pattern = patterns(:, randi(nbrOfPatterns)); %Select random pattern
   winningNeuron = FindWinningNeuron(pattern, weights);
   weights = UpdateWeights(weights, winningNeuron, pattern, learningRate, sigma);
-  
   
 end
 
