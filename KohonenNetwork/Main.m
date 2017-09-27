@@ -7,7 +7,7 @@ NUMBER_OF_ITERATIONS = T_ORDER + T_CONV;
 nbrOfPatterns = 1000; %p
 outputDimension = 100; %M
 
-sigma_initial = 100;
+sigma_initial = 5;
 learningRate_initial = 0.1;
 tauSigma = 300;
 
@@ -17,6 +17,12 @@ weightInterval = [-1, 1];
 weights = GenerateWeights(inputDimension, outputDimension, weightInterval); %Return outputDimension x inputDimension matrix
 
 for iteration = 1:NUMBER_OF_ITERATIONS
+    
+  if iteration == T_ORDER
+       subplot(1,2,1);
+       plot(weights(:,1),weights(:,2))
+       title('Weights After Ordering Phase')
+  end
   
   if iteration <= T_ORDER
     learningRate = TimeDependentEta(iteration, learningRate_initial, tauSigma);
@@ -32,6 +38,7 @@ for iteration = 1:NUMBER_OF_ITERATIONS
   
 end
 
+subplot(1, 2, 2);
+plot(weights(:,1),weights(:,2));
 
-
-
+title('Weights After Converegence Phase')
