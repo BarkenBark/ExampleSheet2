@@ -1,7 +1,8 @@
 %% Main
 
-NUMBER_OF_ITERATIONS = 10^4;
 T_ORDER = 10^3;
+T_CONV = 2*10^4;
+NUMBER_OF_ITERATIONS = T_ODER + T_CONV;
 
 nbrOfPatterns = 1000; %p
 outputDimension = 100; %M
@@ -16,10 +17,12 @@ weights = GenerateWeights(inputDimension, outputDimension); %Return outputDimens
 
 for iteration = 1:NUMBER_OF_ITERATIONS
   
-  if iteration < T_order
-    learningRate = initialLearningRate*exp(-iteration/tau);
+  if iteration <= T_ORDER
+    learningRate = TimeDependentEta(t, learningRate_initial, tauSigma);
+    sigma = TimeDependentSigma(t, sigma_initial, tauSigma);
   else
     learningRate = 0.01;
+    sigma = 0.9;
   end
   
   pattern = patterns(:, randi(nbrOfPatterns)); %Select random pattern
