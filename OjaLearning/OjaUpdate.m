@@ -6,7 +6,7 @@ function newWeights = OjaUpdate(weights, patterns, eta)
   
   output = weights*pattern;
 
-  deltaWeights = eta*output*(pattern - output*pattern)';
+  deltaWeights = eta*output*(pattern' - output*weights);
   newWeights = weights + deltaWeights;
 
 end
