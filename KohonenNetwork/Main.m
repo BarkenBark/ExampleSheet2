@@ -1,6 +1,6 @@
 %% Main
 
-NUMBER_OF_ITERATIONS
+NUMBER_OF_ITERATIONS = 10^4;
 
 nbrOfPatterns = 1000; %p
 outputDimension = 100; %M
