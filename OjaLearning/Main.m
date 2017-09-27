@@ -13,6 +13,22 @@ nbrOfUpdates = 2*10^4;
 weightInterval = [-1 1];
 weights = GenerateWeights(nbrOfInputNeurons, nbrOfOutputNeurons, weightInterval);
 
-for i = 1:nbrOfUpdates
-  weights = OjaUpdate(weights, patterns, learningRate);
+weightsModulus = zeros(nbrOfUpdates, 1);
+
+for iTwoRuns = 1:2
+    
+    if iTwoRuns == 2
+        patterns = CenterComponents(patterns, 'columns');
+    end
+    
+    for i = 1:nbrOfUpdates
+        weights = OjaUpdate(weights, patterns, learningRate);
+        
+        weightsModulus(i) = norm(weights);
+    end
+    
+    subplot(1, 2, iTwoRuns);
+    plot(1:nbrOfUpdates, weightsModulus);
+    
 end
+
