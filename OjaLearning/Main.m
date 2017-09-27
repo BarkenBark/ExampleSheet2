@@ -3,7 +3,7 @@
 clc; clear all;
 
 patterns = dlmread('data_ex2_task2_2017.txt')';
-%patterns = CenterComponents(patterns, 'row'); %Todo: Write CenterComponents
+%patterns = CenterComponents(patterns, 'row');
 
 nbrOfInputNeurons = size(patterns,1);
 nbrOfOutputNeurons = 1;
@@ -24,7 +24,6 @@ for iTwoRuns = 1:2
     
     for i = 1:nbrOfUpdates
         weights = OjaUpdate(weights, patterns, learningRate);
-        
         weightsModulus(i) = norm(weights);
     end
     
