@@ -3,7 +3,7 @@
 clc; clear all;
 
 patterns = dlmread('data_ex2_task2_2017.txt')';
-%centeredData = CenterComponents(patterns); %Todo: Write CenterComponents
+patterns = CenterComponents(patterns, 'row'); %Todo: Write CenterComponents
 
 nbrOfInputNeurons = size(patterns,1);
 nbrOfOutputNeurons = 1;
