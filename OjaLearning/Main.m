@@ -18,7 +18,7 @@ weightsModulus = zeros(nbrOfUpdates, 1);
 for iTwoRuns = 1:2
     
     if iTwoRuns == 2
-        patterns = CenterComponents(patterns, 'columns');
+        patterns = CenterComponents(patterns, 'column');
     end
     
     for i = 1:nbrOfUpdates
