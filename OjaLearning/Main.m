@@ -1,5 +1,7 @@
 %% Main
 
+clc; clear all;
+
 patterns = dlmread('data_ex2_task2_2017.txt')';
 %centeredData = CenterComponents(patterns); %Todo: Write CenterComponents
 
@@ -12,5 +14,5 @@ weightInterval = [-1 1];
 weights = GenerateWeights(nbrOfInputNeurons, nbrOfOutputNeurons, weightInterval);
 
 for i = 1:nbrOfUpdates
-  weights = OjaUpdate(weights, pattern, learningRate);
+  weights = OjaUpdate(weights, patterns, learningRate);
 end
