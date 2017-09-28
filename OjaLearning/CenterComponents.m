@@ -3,9 +3,9 @@ function centeredData = CenterComponents(data, mode)
 %column
 
   if strcmp(mode, 'row')
-    centeredData = zscore(data, 0, 2);
+    centeredData = data - mean(data,2);
   elseif strcmp(mode, 'column')
-    centeredData = zscore(data, 0, 1);
+    centeredData = data - mean(data,1);
   end
 
 end
