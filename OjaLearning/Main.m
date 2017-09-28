@@ -40,3 +40,16 @@ end
 
 hold off
 
+%% Check properties of weight vector
+
+C = ComputeCorrelationMatrix(patterns, 'row');
+
+
+
+
+
+
+
+
+
+
