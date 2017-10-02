@@ -4,8 +4,8 @@ function [ weights ] = InitializeWeights( interval, dimensions )
 %a uniform distribution on the interval (interval = [-x, +x]).
 
     weights = zeros(dimensions);
-    for i=1:dimensions(1)
-        for j=1:dimensions(2)
+    for j=1:dimensions(1)
+        for i=1:dimensions(2)
             weights(i,j) = interval(1)+(interval(2)-interval(1))*rand;
         end
     end
