@@ -4,19 +4,20 @@ data = dlmread('data_ex2_task3_2017.txt');
 patterns = data(:,2:3)';
 targetOutputs = data(:,1)';
 
-%scatter(patterns(:,1), patterns(:,2))
+PlotData(data);
 
 k = 100;
+<<<<<<< HEAD
 nbrOfOutputNeurons = size(targetOutputs, 1);
 networkDimensions = [nbrOfOutputNeurons k];
 weightInterval = [-1 1];
 thresholdInterval = [-1 1];
+=======
+>>>>>>> f0afba3e8334c788dbcd3e852aea7ca57cac9d2c
 beta = 1/2;
 TRAINING_STEPS = 3000;
 
 nbrOfPatterns = size(patterns, 1);
-
-%weights = InitializeWeights(networkDimensions, weightInterval);
 
 transformedPatterns = TransformPatterns(patterns, k);
 
