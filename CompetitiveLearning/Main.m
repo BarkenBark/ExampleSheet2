@@ -4,12 +4,9 @@ data = dlmread('data_ex2_task3_2017.txt');
 patterns = data(:,2:3)';
 targetOutputs = data(:,1)';
 
-%scatter(patterns(:,1), patterns(:,2))
+
 
 k = 100;
-networkDimensions = [2 k];
-weightInterval = [-1 1];
-thresholdInterval = [-1 1];
 beta = 1/2;
 
 nbrOfPatterns = size(patterns, 1);
