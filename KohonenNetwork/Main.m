@@ -19,12 +19,12 @@ weights = GenerateWeights(inputDimension, outputDimension, weightInterval); %Ret
 for iteration = 1:NUMBER_OF_ITERATIONS
     
   if iteration == T_ORDER
-       subplot(1,2,1);
-       plot(weights(:,1),weights(:,2))
-       title('Weights After Ordering Phase')
+     subplot(1,2,1);
+     plot(weights(:,1),weights(:,2))
+     title('Weights After Ordering Phase')
   end
   
-  if iteration <= T_ORDER
+  if iteration < T_ORDER
     learningRate = TimeDependentEta(iteration, learningRate_initial, tauSigma);
     sigma = TimeDependentSigma(iteration, sigma_initial, tauSigma);
   else
