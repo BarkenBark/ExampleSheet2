@@ -8,8 +8,7 @@ NUMBER_OF_ITERATIONS = 10^5;
 
 nbrOfPatterns = size(patterns, 2);
 
-%weights = InitializeWeights(networkDimensions, weightInterval);
-weights = rand(k,2)
+weights = InitializeWeights(weightInterval, networkDimensions);
 for iIterations = 1:NUMBER_OF_ITERATIONS
     
     thisPattern = patterns(:, randi(nbrOfPatterns));
