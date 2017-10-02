@@ -4,14 +4,12 @@ data = dlmread('data_ex2_task3_2017.txt');
 patterns = data(:,2:3)';
 targetOutputs = data(:,1)';
 
-
+PlotData(data);
 
 k = 100;
 beta = 1/2;
 
 nbrOfPatterns = size(patterns, 1);
-
-%weights = InitializeWeights(networkDimensions, weightInterval);
 
 transformedPatterns = TransformPatterns(patterns, k);
 

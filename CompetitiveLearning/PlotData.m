@@ -3,11 +3,15 @@ function PlotData(data)
   patterns = data(:,2:3)';
   targetOutput = data(:,1)';
 
+  j = 0;
   for i = find(targetOutput == 1)
-    class1Patterns = patterns(:,i);
+    j = j+1;
+    class1Patterns(:,j) = patterns(:,i);
   end
-  for i = find(targetOutput = -1);
-    class2Patterns = patterns(:,i);
+  j = 0;
+  for i = find(targetOutput == -1)
+    j = j+1;
+    class2Patterns(:,j) = patterns(:,i);
   end
 
   hold on
