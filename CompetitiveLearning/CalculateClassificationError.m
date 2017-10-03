@@ -5,7 +5,7 @@ function [ tCE ] = CalculateClassificationError( networkOutputs, targetOutputs )
         tCE = tCE + abs(targetOutputs(i) - sign(networkOutputs(i)));
     end
     
-    tCE = tCE/(2*length(targetoutputs));
+    tCE = tCE/(2*length(targetOutputs));
 
 
 end
