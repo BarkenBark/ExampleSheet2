@@ -6,7 +6,7 @@ targetOutputs = data(:,1)';
 
 %PlotData(data);
 
-k = 100;
+k = 4;
 
 nbrOfPatterns = size(patterns, 1);
 
@@ -28,7 +28,7 @@ thresholds = -1 + rand*(thresholdInterval(2) - thresholdInterval(1));
 for iSupervisedIterations = 1:TRAINING_STEPS
     
     iRandom = randi(nbrOfPatterns);
-    thisPattern = transFormedPatterns(:,iRandom);
+    thisPattern = transformedPatterns(:,iRandom);
     zeta = targetOutputs(iRandom);
     
     output = weights*thisPattern - thresholds;
