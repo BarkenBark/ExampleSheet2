@@ -8,20 +8,22 @@ targetOutputs = data(:,1)';
 
 k = 100;
 
+nbrOfPatterns = size(patterns, 1);
+
+nbrOfInputNeurons = k;
 nbrOfOutputNeurons = size(targetOutputs, 1);
-networkDimensions = [nbrOfOutputNeurons k];
+networkDimensions = [k nbrOfOutputNeurons];
 weightInterval = [-1 1];
 thresholdInterval = [-1 1];
-
 beta = 1/2;
+learningRate = 0.1;
 TRAINING_STEPS = 3000;
 
-nbrOfPatterns = size(patterns, 1);
 
 transformedPatterns = TransformPatterns(patterns, k);
 
-weights = InitializeWeights(weightInterval, networkDimensions);
-thresholds = -1 + rand*(1-(-1));
+weights = InitializeWeights(weightInterval, nbrOfInputNeurons, nbrOfOutputNeurons);
+thresholds = -1 + rand*(thresholdInterval(2) - thresholdInterval(1));
 
 for iSupervisedIterations = 1:TRAINING_STEPS
     

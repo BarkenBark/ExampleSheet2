@@ -1,14 +1,16 @@
 function transformedPatterns = TransformPatterns( patterns, k )
-    
-k = 100;
-networkDimensions = [2 k];
-weightInterval = [-1 1];
-learningRate = 0.02;
-NUMBER_OF_ITERATIONS = 10^5;
 
 nbrOfPatterns = size(patterns, 2);
+networkDimensions = [2 k];
+nbrOfInputNeurons = 2;
+nbrOfOutputNeurons = k;
 
-weights = InitializeWeights(weightInterval, networkDimensions);
+weightInterval = [-1 1];
+learningRate = 0.02;
+
+NUMBER_OF_ITERATIONS = 10^5;
+
+weights = InitializeWeights(weightInterval, nbrOfInputNeurons, nbrOfOutputNeurons);
 for iIterations = 1:NUMBER_OF_ITERATIONS
     
     thisPattern = patterns(:, randi(nbrOfPatterns));
