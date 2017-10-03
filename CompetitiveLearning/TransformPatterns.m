@@ -1,7 +1,6 @@
 function transformedPatterns = TransformPatterns( patterns, k )
 
 nbrOfPatterns = size(patterns, 2);
-networkDimensions = [2 k];
 nbrOfInputNeurons = 2;
 nbrOfOutputNeurons = k;
 
