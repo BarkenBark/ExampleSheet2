@@ -2,6 +2,7 @@
 clf; clear all;
 clc;
 
+clear all;
 data = dlmread('data_ex2_task3_2017.txt');
 
 %data = GenerateEasyData;
@@ -11,7 +12,7 @@ targetOutputs = data(:,1)';
 
 %PlotData(data);
 
-k = 4;
+k = 10;
 
 nbrOfPatterns = size(patterns, 2);
 
@@ -60,9 +61,7 @@ for i = 1:2000
   output(i) = TanActivation(output(i), beta);
 end
 
-
-
-
+classificationError = CalculateClassificationError(output, targetOutputs);
 
 
 
