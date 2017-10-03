@@ -58,6 +58,8 @@ for i = 1:2000
   output(i) = TanActivation(output(i), beta);
 end
 
+classificationError = CalculateClassificationError(output, targetOutputs);
+
 
 
 

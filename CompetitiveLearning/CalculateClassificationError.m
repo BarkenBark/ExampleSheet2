@@ -1,13 +1,11 @@
-function [ tCE ] = CalculateClassificationError( patternInputs, patternOutputs, weights, biases, beta )
+function [ tCE ] = CalculateClassificationError( networkOutputs, targetOutputs )
     
-    outputs = weights * patternInputs - biases;
-    activatedOutputs = TanActivation(outputs, beta);
     tCE = 0; %totalClassificationError
-    for i=1:size(patternInputs,2)
-        tCE = tCE + abs(patternOutputs(i) - sign(activatedOutputs(i)));
+    for i=1:length(targetOutputs)
+        tCE = tCE + abs(targetOutputs(i) - sign(networkOutputs(i)));
     end
     
-    tCE = tCE/(2*size(patternInputs,2));
+    tCE = tCE/(2*length(targetoutputs));
 
 
 end
