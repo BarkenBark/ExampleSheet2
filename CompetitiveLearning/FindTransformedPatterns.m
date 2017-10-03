@@ -16,7 +16,7 @@ for iIterations = 1:NUMBER_OF_ITERATIONS
     
     thisPattern = patterns(:, randi(nbrOfPatterns));
     g = ActivationFunction(thisPattern, weights);
-    [~, iWinningNeuron] = min(g);
+    [~, iWinningNeuron] = max(g);
     deltaWeights = learningRate*(thisPattern' - weights(iWinningNeuron,:));
     weights(iWinningNeuron,:) = weights(iWinningNeuron,:) + deltaWeights;
     
