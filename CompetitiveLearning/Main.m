@@ -1,4 +1,6 @@
 %% Main
+clf; clear all;
+clc;
 
 data = dlmread('data_ex2_task3_2017.txt');
 
@@ -23,7 +25,7 @@ learningRate = 0.1;
 TRAINING_STEPS = 3000;
 
 
-transformedPatterns = TransformPatterns(patterns, k);
+[transformedPatterns, gaussianWeights] = TransformPatterns(patterns, k);
 
 weights = InitializeWeights(weightInterval, nbrOfInputNeurons, nbrOfOutputNeurons);
 thresholds = -1 + rand*(thresholdInterval(2) - thresholdInterval(1));
