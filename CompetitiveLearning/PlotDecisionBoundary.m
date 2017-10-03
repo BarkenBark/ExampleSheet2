@@ -1,4 +1,6 @@
-function PlotDecisionBoundary(weights, thresholds, gaussianWeights, beta, resolution, plotRange)
+function PlotDecisionBoundary(weights, thresholds, gaussianWeights, beta, resolution, plotRange, data)
+
+clf
 
   xmin = plotRange(1); xmax = plotRange(2);
   ymin = plotRange(3); ymax = plotRange(4);
@@ -34,8 +36,16 @@ function PlotDecisionBoundary(weights, thresholds, gaussianWeights, beta, resolu
   size(class2Patterns)
 
   hold on
-  scatter(class1Patterns(1,:), class1Patterns(2,:), 'o');
-  scatter(class2Patterns(1,:), class2Patterns(2,:), 'x');
+  color1 = [0.4 0.4 1];
+  color2 = [1 0.4 0.4];
+  scatter(class1Patterns(1,:), class1Patterns(2,:), '.', 'filled', ...
+    'MarkerFaceColor', color1, 'LineWidth', 0.2, 'MarkerEdgeColor',...
+    color1);
+  scatter(class2Patterns(1,:), class2Patterns(2,:), '.', 'filled', ...
+    'MarkerFaceColor', color2, 'LineWidth', 0.2, 'MarkerEdgeColor', ...
+    color2);
+  
+  PlotData(data);
 
 end
 

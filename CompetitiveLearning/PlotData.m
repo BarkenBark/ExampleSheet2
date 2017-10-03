@@ -15,8 +15,8 @@ function PlotData(data)
   end
 
   hold on
-  scatter(class1Patterns(1,:), class1Patterns(2,:), 'o');
-  scatter(class2Patterns(1,:), class2Patterns(2,:), 'x');
+  scatter(class1Patterns(1,:), class1Patterns(2,:), 'o', 'LineWidth', 2, 'MarkerEdgeColor', 'blue');
+  scatter(class2Patterns(1,:), class2Patterns(2,:), 'x', 'LineWidth', 2, 'MarkerEdgeColor', 'red');
   
 end
 
