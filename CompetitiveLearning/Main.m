@@ -11,7 +11,7 @@ targetOutputs = data(:,1)';
 
 kTest = zeros(1,10);
 
-for k = 1:10
+%for k = 1:10
 
 NUMBER_OF_RUNS = 20;
 
@@ -22,7 +22,7 @@ for iRuns = 1:NUMBER_OF_RUNS
     
     %PlotData(data);
     
-    %k = 4;
+    k = 4;
     
     nbrOfPatterns = size(patterns, 2);
     
@@ -75,11 +75,11 @@ for iRuns = 1:NUMBER_OF_RUNS
     
 end
 
-kTest(k) = mean(classErrorOverRuns);
+%kTest(k) = mean(classErrorOverRuns);
 
-end
+%end %end for different k
 
-plot(1:10, kTest)
+%plot(1:10, kTest)
 
 
 

@@ -1,5 +1,8 @@
 %% Main
 
+clc; clear all;
+clf; close all;
+
 T_ORDER = 10^3;
 T_CONV = 2*10^4;
 NUMBER_OF_ITERATIONS = T_ORDER + T_CONV;
@@ -20,11 +23,13 @@ for iteration = 1:NUMBER_OF_ITERATIONS
     
   if iteration == T_ORDER
      subplot(1,2,1);
-     plot(weights(:,1),weights(:,2))
+     hold on
+     scatter(patterns(1,:), patterns(2,:), '.')
+     plot(weights(:,1),weights(:,2), 'LineWidth', 3)
      title('Weights After Ordering Phase')
   end
   
-  if iteration < T_ORDER
+  if iteration <= T_ORDER
     learningRate = TimeDependentEta(iteration, learningRate_initial, tauSigma);
     sigma = TimeDependentSigma(iteration, sigma_initial, tauSigma);
   else
@@ -39,6 +44,8 @@ for iteration = 1:NUMBER_OF_ITERATIONS
 end
 
 subplot(1, 2, 2);
-plot(weights(:,1),weights(:,2));
+hold on
+scatter(patterns(1,:), patterns(2,:), '.')
+plot(weights(:,1),weights(:,2), 'LineWidth', 3);
 
 title('Weights After Converegence Phase')
