@@ -44,8 +44,12 @@ clf
   scatter(class2Patterns(1,:), class2Patterns(2,:), '.', 'filled', ...
     'MarkerFaceColor', color2, 'LineWidth', 0.2, 'MarkerEdgeColor', ...
     color2);
+   
+  [d1, d2] = PlotData(data);
   
-  PlotData(data);
-
+  w = scatter(gaussianWeights(:,1), gaussianWeights(:,2), 'square', 'filled', ...
+    'LineWidth', 2, 'MarkerEdgeColor', 'black', 'MarkerFaceColor', 'white');
+  
+  legend([d1, d2, w], 'Class +1', 'Class -1', 'Gaussian weights')
 end
 

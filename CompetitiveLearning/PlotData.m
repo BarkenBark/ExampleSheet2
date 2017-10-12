@@ -1,4 +1,4 @@
-function PlotData(data)
+function [d1, d2] = PlotData(data)
 
   patterns = data(:,2:3)';
   targetOutput = data(:,1)';
@@ -15,8 +15,10 @@ function PlotData(data)
   end
 
   hold on
-  scatter(class1Patterns(1,:), class1Patterns(2,:), 'o', 'LineWidth', 2, 'MarkerEdgeColor', 'blue');
-  scatter(class2Patterns(1,:), class2Patterns(2,:), 'x', 'LineWidth', 2, 'MarkerEdgeColor', 'red');
+  d1 = scatter(class1Patterns(1,:), class1Patterns(2,:), 'o', 'LineWidth', 1, ...
+    'MarkerEdgeColor', 'blue', 'MarkerEdgeAlpha', 0.8);
+  d2 = scatter(class2Patterns(1,:), class2Patterns(2,:), 'o', 'LineWidth', 1, ...
+    'MarkerEdgeColor', 'red', 'MarkerEdgeAlpha', 0.8);
   
 end
 
