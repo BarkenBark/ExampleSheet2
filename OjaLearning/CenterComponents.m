@@ -3,7 +3,7 @@ function centeredData = CenterComponents(data, mode)
 %column
 
   if strcmp(mode, 'row')
-    centeredData = data - mean(data,2);
+    centeredData = data - repmat(mean(data,2), 1, length(data));
     %centeredData(1,:) = centeredData(1,:)/(std(centeredData(1,:)));
     %centeredData(2,:) = centeredData(2,:)/(std(centeredData(2,:)));
   elseif strcmp(mode, 'column')
