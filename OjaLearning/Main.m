@@ -4,7 +4,7 @@ clc; clf; clear all;
 
 patterns = dlmread('data_ex2_task2_2017.txt')';
 centeredPatterns = CenterComponents(patterns, 'row');
-
+%%
 nbrOfInputNeurons = size(patterns,1);
 nbrOfOutputNeurons = 1;
 
@@ -54,12 +54,14 @@ hold off
 
 %% Check properties of weight vector
 
+COV1 = ComputeCovarianceMatrix(patterns, 'row');
 C1 = ComputeCorrelationMatrix(patterns, 'row');
 weights1 = Weights{1};
 [V1,D1] = eig(C1);
 [lambdaMax1, I] = max(D1);
 eigenVec1 = V1(:,2);
 
+COV2 = ComputeCovarianceMatrix(centeredPatterns, 'row');
 C2 = ComputeCorrelationMatrix(centeredPatterns, 'row');
 weights2 = Weights{2};
 [V2,D2] = eig(C2);

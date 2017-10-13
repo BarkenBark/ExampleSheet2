@@ -16,13 +16,14 @@ kTest = zeros(1,10);
 NUMBER_OF_RUNS = 20;
 
 classErrorOverRuns = zeros(1, NUMBER_OF_RUNS);
+minClassError = inf;
 
 
 for iRuns = 1:NUMBER_OF_RUNS
     
     %PlotData(data);
     
-    k = 4;
+    k = 10;
     
     nbrOfPatterns = size(patterns, 2);
     
@@ -73,7 +74,18 @@ for iRuns = 1:NUMBER_OF_RUNS
     
     classErrorOverRuns(iRuns) = CalculateClassificationError(output, targetOutputs);
     
+    if classErrorOverRuns(iRuns) < minClassError
+      bestWeights = weights;
+      bestThresholds = thresholds;
+      bestGaussianWeights = gaussianWeights;
+    end
+    
 end
+
+resolution = 150;
+
+PlotDecisionBoundary(bestWeights, bestThresholds, bestGaussianWeights, beta, ...
+  resolution, [-15, 25, -10, 15], data);
 
 %kTest(k) = mean(classErrorOverRuns);
 
