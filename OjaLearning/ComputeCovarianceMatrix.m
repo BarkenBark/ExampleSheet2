@@ -11,7 +11,7 @@ function covarianceMatrix = ComputeCovarianceMatrix( patterns, mode )
     for i = 1:nbrOfVariables
       for j = 1:nbrOfVariables
         covarianceMatrix(i,j) = 1/nbrOfPatterns * ...
-          sum((patterns(i,:)-meanValue(i)).*patterns(j,:)-meanValue(j));
+          sum((patterns(i,:)-meanValue(i)).*(patterns(j,:)-meanValue(j)));
       end
     end
   elseif strcmp(mode, 'column')
